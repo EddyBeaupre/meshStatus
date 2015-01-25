@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<!-- Select a Product Configuration -->
+		<InstallShieldProductConfiguration>Express</InstallShieldProductConfiguration>
+		<!-- Select a Visual Studio Configuration / InstallShield Release -->
+		<Configuration>Debug</Configuration>
+		<InstallShieldRelease>$(Configuration)</InstallShieldRelease>
+	</PropertyGroup>
+	<ItemGroup>
+		<!-- The InstallShieldProject item selects the project to build -->
+		<InstallShieldProject Include="$(MSBuildProjectDirectory)\$(MSBuildProjectName).isl"/>
+		<!-- The InstallShieldReleaseFlags sets Release Flags -->
+		<!--<InstallShieldReleaseFlags Include=""/>-->
+		<!-- The InstallShieldMergeModulePath specifies what directories are
+		searched for Merge Modules -->
+		<!--<InstallShieldMergeModulePath Include=""/>-->
+	</ItemGroup>
+	<ItemGroup>
+		<!-- The ProjectReference items refer to any Visual Studio solutions you want to automatically probe for Project Output Groups.  -->
+	</ItemGroup>
+	<ItemGroup>
+		<!-- The TaggedOutputs items allow you to explicitly add extra files to output groups. Each item must include both Name and OutputGroup, as well as TargetPath metadata values. -->
+		<!--<TaggedOutputs Include="C:\My Test Exe.exe">
+			<Name>My Test Project</Name>
+			<OutputGroup>Primary output</OutputGroup>
+			<TargetPath>My Test Exe.exe</TargetPath>
+		</TaggedOutputs> -->
+	</ItemGroup>
+	<Import Project="$(MSBuildExtensionsPath32)\InstallShield\2013Limited\InstallShield.targets"/>
+	<ItemGroup>
+		<ProjectReference Include="..\..\Renci.SshNet\Renci.SshNet.csproj">
+			<Name>Renci.SshNet</Name>
+			<Project>{2F5F8C90-0BD1-424F-997C-7BC6280919D1}</Project>
+		</ProjectReference>
+		<ProjectReference Include="..\meshStatus\meshStatus.csproj">
+			<Name>meshStatus</Name>
+			<Project>{7C00A3AC-A071-4DBA-A8E1-014CE560204E}</Project>
+		</ProjectReference>
+		<ProjectReference Include="..\meshStatusService\meshStatusService.csproj">
+			<Name>meshStatusService</Name>
+			<Project>{7E2626D9-6313-4700-B80A-55DAF63449C8}</Project>
+		</ProjectReference>
+		<ProjectReference Include="..\meshStatusServiceControl\meshStatusServiceControl.csproj">
+			<Name>meshStatusServiceControl</Name>
+			<Project>{A9C96BC9-603B-47A2-8DF3-5E1B96094EEA}</Project>
+		</ProjectReference>
+		<ProjectReference Include="..\meshUtils\meshUtils.csproj">
+			<Name>meshUtils</Name>
+			<Project>{C11DF84D-A215-4F9D-92FF-C8BE5F09A322}</Project>
+		</ProjectReference>
+		<ProjectReference Include="..\..\tcpUtils\tcpUtils\tcpUtils.csproj">
+			<Name>tcpUtils</Name>
+			<Project>{BA2C7E76-91ED-4ED2-A7D7-D7857F5DDC30}</Project>
+		</ProjectReference>
+	</ItemGroup>
+</Project>
